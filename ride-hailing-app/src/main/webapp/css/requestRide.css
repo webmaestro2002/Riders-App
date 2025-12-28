@@ -1,0 +1,32 @@
+.request-bg {
+  min-height: 100vh;
+  background: var(--bg-light);
+}
+
+.request-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.request-title {
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.request-subtitle {
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}

@@ -1,0 +1,64 @@
+.rides-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.rides-header {
+  margin-bottom: 30px;
+}
+
+.rides-header h2 {
+  margin: 0;
+  font-weight: 700;
+}
+
+.ride-list {
+  display: grid;
+  gap: 20px;
+}
+
+.ride-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 20px;
+}
+
+.ride-info p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.ride-info span {
+  font-weight: 600;
+}
+
+.accept-form {
+  text-align: right;
+}
+
+.back-link {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.back-link a {
+  color: var(--green-main);
+  font-weight: 600;
+  text-decoration: none;
+}
+.empty-state {
+  text-align: center;
+  padding: 40px;
+}
+
+.empty-state p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.back-link .btn-primary {
+  color: #ffffff;
+  text-decoration: none;
+}
+

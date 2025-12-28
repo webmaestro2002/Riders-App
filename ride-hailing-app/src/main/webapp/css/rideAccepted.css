@@ -1,0 +1,53 @@
+.ride-bg {
+  min-height: 100vh;
+  background: var(--bg-light);
+}
+
+.ride-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--green-main), var(--green-light));
+  margin-bottom: 20px;
+}
+
+.ride-details p {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.ride-details span {
+  font-weight: 600;
+}
+
+.fare {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 20px;
+  color: var(--green-dark);
+}
+
+.actions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.back-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.back-link a {
+  color: var(--green-main);
+  font-weight: 600;
+  text-decoration: none;
+}

@@ -10,13 +10,7 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!-- ENTITY CLASSES -->
-        <class>com.training.project.rideapp.model.User</class>
-        <class>com.training.project.rideapp.model.Customer</class>
-        <class>com.training.project.rideapp.model.Driver</class>
-        <class>com.training.project.rideapp.model.Vehicle</class>
-        <class>com.training.project.rideapp.model.Ride</class>
-        <class>com.training.project.rideapp.model.Payment</class>
-        <class>com.training.project.rideapp.model.Rating</class>
+
 
         <properties>
 

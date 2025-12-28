@@ -13,47 +13,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Dashboard | Ride App</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/theme.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/components.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/layout.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/dashboard.css">
 </head>
-<body>
 
-<%-- ================= DRIVER DASHBOARD ================= --%>
-<% if (loggedInUser instanceof Driver) { %>
+<body class="dashboard-bg">
 
-    <h2>Welcome, Driver</h2>
-    <p><b>Role:</b> DRIVER</p>
+<div class="dashboard-container">
 
-    <hr/>
+    <%-- ================= DRIVER DASHBOARD ================= --%>
+    <% if (loggedInUser instanceof Driver) { %>
 
-    <h3>Driver Actions</h3>
+        <div class="dashboard-header">
+            <h2>Welcome, Driver</h2>
+            <span class="role-badge">DRIVER</span>
+        </div>
 
-    <!-- Correct: go through servlet -->
-    <a href="<%= request.getContextPath() %>/ride">
-        View Available Rides
-    </a>
+        <div class="action-grid">
+            <div class="card action-card">
+                <h3>Available Rides</h3>
+                <p>View and accept nearby ride requests</p>
+                <a class="btn-primary" href="<%= request.getContextPath() %>/ride">
+                    View Rides
+                </a>
+            </div>
+        </div>
 
-<% } %>
+    <% } %>
 
-<%-- ================= CUSTOMER DASHBOARD ================= --%>
-<% if (loggedInUser instanceof Customer) { %>
+    <%-- ================= CUSTOMER DASHBOARD ================= --%>
+    <% if (loggedInUser instanceof Customer) { %>
 
-    <h2>Welcome, Customer</h2>
-    <p><b>Role:</b> CUSTOMER</p>
+        <div class="dashboard-header">
+            <h2>Welcome, Customer</h2>
+            <span class="role-badge">CUSTOMER</span>
+        </div>
 
-    <hr/>
+        <div class="action-grid">
+            <div class="card action-card">
+                <h3>Request a Ride</h3>
+                <p>Book a ride by entering pickup & drop location</p>
+                <a class="btn-primary" href="<%= request.getContextPath() %>/jsp/requestRide.jsp">
+                    Request Ride
+                </a>
+            </div>
+        </div>
 
-    <h3>Customer Actions</h3>
+    <% } %>
 
-    <!-- ✅ FIXED LINK (NO DOUBLE jsp) -->
-    <a href="<%= request.getContextPath() %>/jsp/requestRide.jsp">
-        Request Ride
-    </a>
+    <div class="logout">
+        <a href="<%= request.getContextPath() %>/logout">Logout</a>
+    </div>
 
-<% } %>
-
-<hr/>
-
-<a href="<%= request.getContextPath() %>/logout">Logout</a>
+</div>
 
 </body>
 </html>

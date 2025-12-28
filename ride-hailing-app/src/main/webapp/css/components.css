@@ -1,0 +1,45 @@
+.card {
+  background: var(--white);
+  padding: 32px;
+  border-radius: var(--radius);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #a7f3d0;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 14px;
+}
+
+.input:focus {
+  border-color: var(--green-main);
+  box-shadow: 0 0 0 2px rgba(5,150,105,0.2);
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--green-main), var(--green-light));
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 20px rgba(5,150,105,0.45);
+}
+
+.error-msg {
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+

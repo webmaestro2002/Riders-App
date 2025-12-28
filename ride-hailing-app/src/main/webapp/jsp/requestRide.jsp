@@ -1,44 +1,54 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Request Ride</title>
+    <meta charset="UTF-8">
+    <title>Request Ride | Ride App</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/theme.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/components.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/layout.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/requestRide.css">
 </head>
-<body>
 
-<h2>Request a Ride</h2>
+<body class="request-bg">
 
-<form action="<%= request.getContextPath() %>/ride" method="post">
+<div class="request-container">
+  <div class="card">
 
-    <input type="hidden" name="action" value="REQUEST"/>
+    <h2 class="request-title">Request a Ride</h2>
+    <p class="request-subtitle">Enter ride details to calculate fare</p>
 
-    <label>
-        Pickup Location:
-        <input type="text" name="pickup" required />
-    </label>
-    <br/><br/>
+    <form class="form" action="<%= request.getContextPath() %>/ride" method="post">
 
-    <label>
-        Drop Location:
-        <input type="text" name="drop" required />
-    </label>
-    <br/><br/>
+        <input type="hidden" name="action" value="REQUEST"/>
 
-    <label>
-        Distance (km):
-        <input type="number" name="distance" step="0.1" min="0.1" required />
-    </label>
-    <br/><br/>
+        <div class="form-group">
+            <label for="pickup">Pickup Location</label>
+            <input class="input" type="text" id="pickup" name="pickup" placeholder="Enter pickup location" required />
+        </div>
 
-    <button type="submit">Get Fare</button>
-</form>
+        <div class="form-group">
+            <label for="drop">Drop Location</label>
+            <input class="input" type="text" id="drop" name="drop" placeholder="Enter drop location" required />
+        </div>
 
-<br/><hr/><br/>
+        <div class="form-group">
+            <label for="distance">Distance (km)</label>
+            <input class="input" type="number" id="distance" name="distance" step="0.1" min="0.1" placeholder="e.g. 12.5" required />
+        </div>
 
-<a href="<%= request.getContextPath() %>/jsp/dashboard.jsp">
-    Back to Dashboard
-</a>
+        <button class="btn-primary" type="submit">
+            Get Fare
+        </button>
+
+    </form>
+
+  </div>
+</div>
 
 </body>
 </html>

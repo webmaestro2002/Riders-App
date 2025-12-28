@@ -1,0 +1,50 @@
+.register-bg {
+  background: linear-gradient(
+    135deg,
+    var(--green-dark),
+    var(--green-main),
+    var(--green-light)
+  );
+}
+
+.register-card {
+  width: 420px;
+  text-align: center;
+}
+
+.register-title {
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.register-subtitle {
+  margin-bottom: 20px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #a7f3d0;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 14px;
+}
+
+.select:focus {
+  border-color: var(--green-main);
+  box-shadow: 0 0 0 2px rgba(5,150,105,0.2);
+}
+
+.login-link {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: var(--green-main);
+  font-weight: 600;
+  text-decoration: none;
+}

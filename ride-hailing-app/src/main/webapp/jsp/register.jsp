@@ -1,32 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
+    <title>Register | Ride App</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/theme.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/components.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/layout.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/register.css">
 </head>
-<body>
-<h2>Register</h2>
 
-<form action="<%=request.getContextPath()%>/register" method="post">
-    Full Name: <input type="text" name="fullName" required /><br/><br/>
-    Email: <input type="email" name="email" required /><br/><br/>
-    Phone: <input type="text" name="phone" required /><br/><br/>
-    Password: <input type="password" name="password" required /><br/><br/>
+<body class="register-bg">
 
-    Role:
-    <select name="role">
-        <option value="CUSTOMER">Customer</option>
-        <option value="DRIVER">Driver</option>
-    </select><br/><br/>
+<div class="center-screen">
+  <div class="card register-card">
 
-    License (Drivers only): <input type="text" name="license" /><br/><br/>
+    <h2 class="register-title">Create Account</h2>
+    <p class="register-subtitle">Join and start booking rides</p>
 
-    <button type="submit">Register</button>
-</form>
+    <form action="<%=request.getContextPath()%>/register" method="post">
 
-<p style="color:red;">
-    <%= request.getAttribute("error") == null ? "" : request.getAttribute("error") %>
-</p>
+        <input class="input" type="text" name="fullName" placeholder="Full Name" required />
+        <input class="input" type="email" name="email" placeholder="Email address" required />
+        <input class="input" type="text" name="phone" placeholder="Phone number" required />
+        <input class="input" type="password" name="password" placeholder="Password" required />
 
-<a href="login.jsp">Back to Login</a>
+        <select class="select" name="role">
+            <option value="CUSTOMER">Customer</option>
+            <option value="DRIVER">Driver</option>
+        </select>
+
+        <input class="input" type="text" name="license" placeholder="Driving License (Drivers only)" />
+
+        <button class="btn-primary" type="submit">Register</button>
+    </form>
+
+    <div class="error-msg">
+        <%= request.getAttribute("error") == null ? "" : request.getAttribute("error") %>
+    </div>
+
+    <div class="login-link">
+        Already have an account? <a href="login.jsp">Login</a>
+    </div>
+
+  </div>
+</div>
+
 </body>
 </html>

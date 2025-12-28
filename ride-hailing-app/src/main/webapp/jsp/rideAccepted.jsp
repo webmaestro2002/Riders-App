@@ -11,34 +11,52 @@
 %>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Ride Accepted</title>
+    <meta charset="UTF-8">
+    <title>Ride Accepted | Ride App</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/theme.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/components.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/layout.css">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/rideAccepted.css">
 </head>
-<body>
 
-<h2>Ride Accepted Successfully ✅</h2>
+<body class="ride-bg">
 
-<p><b>Status:</b> <%= ride.getStatus() %></p>
-<p><b>Pickup:</b> <%= ride.getPickupLocation() %></p>
-<p><b>Drop:</b> <%= ride.getDropLocation() %></p>
-<p><b>Fare:</b> &#8377;<%= ride.getFare() %></p>
+<div class="ride-container">
 
-<hr/>
+    <div class="card">
 
-<form action="<%= request.getContextPath() %>/ride" method="post">
-    <input type="hidden" name="action" value="COMPLETE"/>
-    <input type="hidden" name="rideId" value="<%= ride.getId() %>"/>
-    <button type="submit">Complete Ride</button>
-</form>
+        <h2>Ride Accepted</h2>
+        <span class="status-badge">CONFIRMED</span>
 
+        <div class="ride-details">
+            <p><span>Status:</span> <%= ride.getStatus() %></p>
+            <p><span>Pickup:</span> <%= ride.getPickupLocation() %></p>
+            <p><span>Drop:</span> <%= ride.getDropLocation() %></p>
 
+            <div class="fare">
+                Fare: &#8377; <%= ride.getFare() %>
+            </div>
+        </div>
 
-<br/>
+        <!-- ONLY ACTION ALLOWED -->
+        <div class="actions">
+            <form action="<%= request.getContextPath() %>/ride" method="post">
+                <input type="hidden" name="action" value="COMPLETE"/>
+                <input type="hidden" name="rideId" value="<%= ride.getId() %>"/>
+                <button class="btn-primary" type="submit">
+                    Complete Ride
+                </button>
+            </form>
+        </div>
 
-<a href="<%= request.getContextPath() %>/jsp/dashboard.jsp">
-    Back to Dashboard
-</a>
+    </div>
+
+</div>
 
 </body>
 </html>

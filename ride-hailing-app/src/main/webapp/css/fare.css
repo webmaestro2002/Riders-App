@@ -1,0 +1,51 @@
+.fare-bg {
+  min-height: 100vh;
+  background: var(--bg-light);
+}
+
+.fare-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.fare-title {
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.fare-details p {
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.fare-details span {
+  font-weight: 600;
+}
+
+.fare-amount {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #ecfdf5;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--green-dark);
+  text-align: center;
+}
+
+.fare-actions {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.cancel-link {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.cancel-link a {
+  color: #dc2626;
+  font-weight: 600;
+  text-decoration: none;
+}

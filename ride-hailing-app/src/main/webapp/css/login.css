@@ -1,0 +1,35 @@
+.login-bg {
+  background: linear-gradient(
+    135deg,
+    var(--green-dark),
+    var(--green-main),
+    var(--green-light)
+  );
+}
+
+.login-card {
+  width: 360px;
+  text-align: center;
+}
+
+.login-title {
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.login-subtitle {
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.register-link {
+  margin-top: 18px;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: var(--green-main);
+  font-weight: 600;
+  text-decoration: none;
+}
