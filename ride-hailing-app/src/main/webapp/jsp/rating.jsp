@@ -22,7 +22,8 @@
     <h2 class="rating-title">Rate Your Ride</h2>
     <p class="rating-subtitle">Your feedback helps us improve</p>
 
-    <form class="form" action="<%=request.getContextPath()%>/rating" method="post">
+<form class="form" action="<%=request.getContextPath()%>/rating" method="post">
+
 
         <div class="rating-group">
             <label for="stars">Rating</label>

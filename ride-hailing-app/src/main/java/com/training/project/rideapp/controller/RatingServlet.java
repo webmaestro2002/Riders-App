@@ -16,10 +16,20 @@ public class RatingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
 
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
+
+        if (session == null) {
+            response.sendRedirect(request.getContextPath() + "/jsp/login.jsp");
+            return;
+        }
 
         Ride ride = (Ride) session.getAttribute("ride");
         User user = (User) session.getAttribute("loggedInUser");
+
+        if (ride == null || user == null) {
+            response.sendRedirect(request.getContextPath() + "/jsp/login.jsp");
+            return;
+        }
 
         Rating rating = new Rating();
         rating.setRide(ride);
@@ -27,15 +37,18 @@ public class RatingServlet extends HttpServlet {
         rating.setComment(request.getParameter("comment"));
         rating.setGivenBy(user);
 
-        // ✅ Role decision using inheritance
-        if (user instanceof Driver) {
-            rating.setGivenTo(ride.getCustomer());
-        } else if (user instanceof Customer) {
+        if (user instanceof Customer) {
             rating.setGivenTo(ride.getDriver());
+        } else if (user instanceof Driver) {
+            rating.setGivenTo(ride.getCustomer());
         }
 
         ratingService.submitRating(rating);
 
-        response.sendRedirect("jsp/dashboard.jsp");
+        // ✅ clear only ride, NOT session
+        session.removeAttribute("ride");
+
+        // ✅ role-safe redirect
+        response.sendRedirect(request.getContextPath() + "/jsp/dashboard.jsp");
     }
 }

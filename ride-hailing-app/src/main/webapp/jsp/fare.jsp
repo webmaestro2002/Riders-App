@@ -40,16 +40,22 @@
         Total Fare: &#8377; <%= ride.getFare() %>
     </div>
 
+    <!-- FIND DRIVER (NOT PAYMENT YET) -->
     <div class="fare-actions">
-        <form action="payment.jsp" method="get">
+        <form action="waitingForDriver.jsp" method="get">
             <button class="btn-primary" type="submit">
-                Proceed to Payment
+                Find Driver
             </button>
         </form>
     </div>
 
     <div class="cancel-link">
-        <a href="dashboard.jsp">Cancel</a>
+        <form action="<%=request.getContextPath()%>/ride" method="post">
+            <input type="hidden" name="action" value="CANCEL"/>
+            <button type="submit" style="background:none;border:none;color:red;font-weight:600;">
+                Cancel
+            </button>
+        </form>
     </div>
 
   </div>

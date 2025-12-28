@@ -70,11 +70,14 @@
     %>
 
     <!-- BACK TO DASHBOARD (ALWAYS VISIBLE) -->
-    <div class="back-link">
-        <a href="<%= request.getContextPath() %>/jsp/dashboard.jsp" class="btn-primary">
-            Back to Dashboard
-        </a>
-    </div>
+<!-- BACK TO DASHBOARD -->
+<div class="back-link">
+    <a href="<%= request.getContextPath() %>/jsp/dashboard.jsp"
+       class="btn-primary">
+        Back to Dashboard
+    </a>
+</div>
+
 
 </div>
 

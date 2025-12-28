@@ -3,14 +3,10 @@ package com.training.project.rideapp.controller;
 import com.training.project.rideapp.model.Customer;
 import com.training.project.rideapp.model.Driver;
 import com.training.project.rideapp.model.Ride;
-import com.training.project.rideapp.model.RideStatus;
 import com.training.project.rideapp.service.RideService;
 
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -43,12 +39,24 @@ public class RideServlet extends HttpServlet {
             throws IOException {
 
         String action = request.getParameter("action");
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(false);
 
-        // ================= CUSTOMER REQUESTS RIDE =================
+        if (session == null) {
+            response.sendRedirect(request.getContextPath() + "/jsp/login.jsp");
+            return;
+        }
+
+        Object user = session.getAttribute("loggedInUser");
+
+        // ================= CUSTOMER REQUEST =================
         if ("REQUEST".equals(action)) {
 
-            Customer customer = (Customer) session.getAttribute("loggedInUser");
+            if (!(user instanceof Customer)) {
+                response.sendRedirect(request.getContextPath() + "/jsp/login.jsp");
+                return;
+            }
+
+            Customer customer = (Customer) user;
 
             Ride ride = new Ride();
             ride.setPickupLocation(request.getParameter("pickup"));
@@ -59,55 +67,55 @@ public class RideServlet extends HttpServlet {
 
             rideService.requestRide(ride);
 
+            // store ride for customer polling
             session.setAttribute("ride", ride);
+
+            // after fare page, customer MUST go to waiting page
             response.sendRedirect(request.getContextPath() + "/jsp/fare.jsp");
             return;
         }
 
-        // ================= DRIVER ACCEPTS RIDE =================
+        // ================= DRIVER ACCEPT =================
         if ("ACCEPT".equals(action)) {
 
+            if (!(user instanceof Driver)) {
+                response.sendRedirect(request.getContextPath() + "/jsp/login.jsp");
+                return;
+            }
+
+            Driver driver = (Driver) user;
             Long rideId = Long.parseLong(request.getParameter("rideId"));
-            Driver driver = (Driver) session.getAttribute("loggedInUser");
 
             rideService.acceptRide(rideId, driver);
 
+            // driver-only session update
             Ride updatedRide = rideService.getRideById(rideId);
             session.setAttribute("ride", updatedRide);
 
+            // customer will auto-redirect via polling
             response.sendRedirect(request.getContextPath() + "/jsp/rideAccepted.jsp");
             return;
         }
 
-        // ================= DRIVER COMPLETES RIDE =================
+        // ================= DRIVER COMPLETE =================
         if ("COMPLETE".equals(action)) {
+
+            if (!(user instanceof Driver)) {
+                response.sendRedirect(request.getContextPath() + "/jsp/login.jsp");
+                return;
+            }
 
             Long rideId = Long.parseLong(request.getParameter("rideId"));
 
-            // mark ride completed
+            System.out.println("✅ DRIVER COMPLETED rideId=" + rideId);
+
             rideService.completeRide(rideId);
 
-            // driver is now free
-            session.removeAttribute("ride");
+            // DO NOT invalidate session
+            // DO NOT remove loggedInUser
 
-            // ✅ redirect to VIEW AVAILABLE RIDES (NOT payment)
             response.sendRedirect(request.getContextPath() + "/ride");
             return;
-        }
-
-
-
-        // ================= CUSTOMER CANCELS RIDE =================
-        if ("CANCEL".equals(action)) {
-
-            Ride ride = (Ride) session.getAttribute("ride");
-
-            if (ride != null) {
-                rideService.cancelRide(ride.getId());
-            }
-
-            session.removeAttribute("ride");
-            response.sendRedirect(request.getContextPath() + "/jsp/dashboard.jsp");
         }
     }
 }
