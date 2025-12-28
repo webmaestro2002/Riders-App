@@ -1,112 +1,116 @@
-README.md:
-  title: "🚕 Ride Hailing App"
-  subtitle: "Java | JSP | Servlets | Hibernate | MySQL"
+# 🚕 Ride Hailing App
+### Java | JSP | Servlets | Hibernate | MySQL
 
-  description: >
-    A full-stack Java web application that simulates a real-world
-    ride-hailing platform with Customer and Driver roles.
-    Built using core Java Web technologies (no Spring),
-    following a clean MVC architecture.
+A **full-stack Java web application** that simulates a real-world  
+**ride-hailing platform** with **Customer** and **Driver** roles.
 
-  highlights:
-    - "Role-based login (Customer / Driver)"
-    - "Real-time ride status updates"
-    - "Complete ride lifecycle"
-    - "Hibernate ORM (JPA)"
-    - "JSP-based UI with clean CSS"
-    - "Session-based authentication"
-    - "Industry-style backend flow"
+Built using **core Java Web technologies (no Spring)**,  
+following a clean **MVC architecture**.
 
-  application_flow:
-    customer:
-      - "🔐 Login"
-      - "📍 Request Ride"
-      - "💰 Fare Calculation"
-      - "⏳ Waiting for Driver (REQUESTED)"
-      - "✅ Ride Accepted (ACCEPTED)"
-      - "🚕 Ride In Progress"
-      - "💳 Payment"
-      - "⭐ Rating"
-      - "🏠 Customer Dashboard (Book a Ride)"
+---
 
-    driver:
-      - "🔐 Login"
-      - "📋 View Available Rides"
-      - "👍 Accept Ride"
-      - "🚕 Ride In Progress"
-      - "✔️ Complete Ride"
-      - "📋 Available Rides"
+## 🌟 Highlights
 
-  ride_status_lifecycle:
-    - "REQUESTED → ACCEPTED → COMPLETED"
+- Role-based login (**Customer / Driver**)
+- Real-time ride status updates
+- Complete ride lifecycle
+- Hibernate ORM (JPA)
+- JSP-based UI with clean CSS
+- Session-based authentication
+- Industry-style backend flow
 
-  core_concepts:
-    - "MVC Architecture"
-    - "Java Servlets & JSP"
-    - "Hibernate ORM with JPA"
-    - "Inheritance (User → Customer / Driver)"
-    - "Session management"
-    - "Polling mechanism for live ride updates"
-    - "Clean separation of concerns"
+---
 
-  technology_stack:
-    frontend: ["JSP", "HTML5", "CSS3"]
-    backend: ["Java", "Servlets"]
-    orm: ["Hibernate (JPA)"]
-    database: ["MySQL"]
-    server: ["Apache Tomcat 10"]
-    build_tool: ["Maven"]
-    version_control: ["Git", "GitHub"]
+## 🧭 Application Flow
 
-  project_structure: |
-    ride-hailing-app
-    ├── src/main/java
-    │   └── com.training.project.rideapp
-    │       ├── controller   🚦 (Servlets)
-    │       ├── service      🧠 (Business Logic)
-    │       ├── repo         🗄️ (Hibernate Repositories)
-    │       ├── model        📦 (Entities & Enums)
-    │       └── util         ⚙️ (Hibernate Utility)
-    ├── src/main/webapp
-    │   ├── jsp              🖥️ (JSP Views)
-    │   ├── css              🎨 (Styling)
-    │   └── index.jsp
-    ├── pom.xml
-    └── README.md
+### 👤 Customer Flow
+<img width="614" height="576" alt="image" src="https://github.com/user-attachments/assets/f1f81b97-3d98-4301-9a6c-0323aa9790a3" />
 
-  database_entities:
-    - "User (Base class)"
-    - "Customer"
-    - "Driver"
-    - "Ride"
-    - "Payment"
-    - "Rating"
-    - "Vehicle"
+### 🚗 Driver Flow
+<img width="416" height="396" alt="image" src="https://github.com/user-attachments/assets/a523d72f-822c-4033-bd77-6e24b3aeac5e" />
 
-  sample_ride_scenario:
-    - "Customer requests ride"
-    - "Fare calculated automatically"
-    - "Driver sees ride in Available Rides"
-    - "Driver accepts ride"
-    - "Customer auto-updates to Ride Accepted"
-    - "Driver completes ride"
-    - "Customer pays"
-    - "Customer rates driver"
-    - "Customer returns to dashboard"
+## 🔄 Ride Status Lifecycle
+<img width="686" height="60" alt="image" src="https://github.com/user-attachments/assets/e31d5111-f8d6-4839-9ab2-de6bf501906a" />
 
-  authentication_and_sessions:
-    login_type: "Single login for Customer and Driver"
-    session_attributes:
-      - "loggedInUser"
-      - "ride"
-    ui_rendering: "Role-based using instanceof"
-    security: "Safe redirections and session checks"
 
-  how_to_run:
-    steps:
-      - "Clone repository"
-      - "Import as Maven project in Eclipse"
-      - "Configure MySQL and hibernate.cfg.xml"
-      - "Run on Apache Tomcat 10"
-    access_url: "http://localhost:8080/ride-hailing-app"
+---
+
+## 🧠 Core Concepts
+
+- MVC Architecture
+- Java Servlets & JSP
+- Hibernate ORM with JPA
+- Inheritance (**User → Customer / Driver**)
+- Session management
+- Polling mechanism for live ride updates
+- Clean separation of concerns
+
+---
+
+## 🛠️ Technology Stack
+
+| Layer | Technology |
+|-----|-----------|
+| Frontend | JSP, HTML5, CSS3 |
+| Backend | Java, Servlets |
+| ORM | Hibernate (JPA) |
+| Database | MySQL |
+| Server | Apache Tomcat 10 |
+| Build Tool | Maven |
+| Version Control | Git, GitHub |
+
+---
+
+## 📂 Project Structure
+<img width="712" height="864" alt="image" src="https://github.com/user-attachments/assets/66f6dfe1-a6dc-4cdb-adfe-9e692d740e8f" />
+
+
+---
+
+## 🧾 Database Entities
+
+- User (Base)
+- Customer
+- Driver
+- Ride
+- Payment
+- Rating
+- Vehicle
+
+---
+
+## 🧪 Sample Ride Scenario
+
+Customer requests ride  
+→ Fare calculated  
+→ Driver accepts  
+→ Customer auto-updated  
+→ Driver completes ride  
+→ Customer pays  
+→ Customer rates driver  
+→ Customer returns to dashboard  
+
+---
+
+## 🔐 Authentication & Sessions
+
+- Single login for Customer and Driver
+- Session attributes:
+  - `loggedInUser`
+  - `ride`
+- Role-based UI rendering
+- Safe redirections
+
+---
+
+## 🚀 How to Run
+
+1. Clone repository
+   ```bash
+   git clone https://github.com/webmaestro2002/ride-hailing-app.git 
+
+<img width="1226" height="510" alt="image" src="https://github.com/user-attachments/assets/7e3a9cdf-37da-4f7a-b8d3-10f5dd88bc4d" />
+
+
+
 
