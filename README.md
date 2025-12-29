@@ -92,6 +92,34 @@ Customer requests ride
 
 ---
 
+## 📸 Output Screenshots
+
+### 🔐 Login Page
+![1](https://github.com/user-attachments/assets/a620f07d-5af1-46f7-98ba-fdf9bf1e80ef)
+
+### 🏠 Dashboard
+![2](https://github.com/user-attachments/assets/e6309e5e-1050-4e13-9790-fc149dae86e5)
+
+### 📍 Request Ride & Available Ride
+![3](https://github.com/user-attachments/assets/90219bdf-7262-4e6a-b1ab-1aa4b0bedd6a)
+
+### 💰 Fare Details
+![4](https://github.com/user-attachments/assets/dbb28adf-93d1-4ebd-a9f9-d00d92892658)
+
+### ⏳ Waiting for Driver
+![5](https://github.com/user-attachments/assets/99596855-45ff-4e49-917e-eb1d5d0a4834)
+
+### ✅ Ride Accepted (Customer View & Driver View)
+![6](https://github.com/user-attachments/assets/63edd65f-c842-47a0-be29-2d3eed3ab3c3)
+
+### ✔️ Ride Completed (Redirected to Payment)
+![7](https://github.com/user-attachments/assets/6e992c70-56ce-4317-807e-52ac0dd3d3f2)
+
+### ⭐ Rating Page
+![8](https://github.com/user-attachments/assets/6219dd4b-7fff-4c86-aa83-b6391fd83786)
+
+---
+
 ## 🔐 Authentication & Sessions
 
 - Single login for Customer and Driver
