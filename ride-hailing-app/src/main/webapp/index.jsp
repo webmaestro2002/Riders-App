@@ -1,3 +1,3 @@
 <%
-    response.sendRedirect("jsp/login.jsp");
+    response.sendRedirect(request.getContextPath() + "/jsp/login.jsp");
 %>
